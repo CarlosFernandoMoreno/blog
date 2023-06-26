@@ -11,8 +11,10 @@ const publicationsRoutes = require('./src/routes/publication.routes.js');
 
 /* Middlewares */
 app.use(express.urlencoded({extended:true}));
+app.use(express.static(path.join(__dirname, "./public")));
 app.use(express.json());   
 app.use(cors());
+//Establecemos EJS como nuestro motor de plantillas
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src/views'));
 
