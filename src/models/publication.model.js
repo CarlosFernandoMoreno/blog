@@ -3,13 +3,20 @@ const PublicationSchema = new Schema({
   imgUrl: {
     type: String,
   },
-  content: {
+  contenido: {
     type: String,
     require: true,
   },
-  title:{
-    type:String,
-    required:true
-  }
+  titulo: {
+    type: String,
+    required: true,
+  },
+  autor: {
+    type: String,
+    default: "Admin",
+  },
+},
+{
+  timestamps:true,
 });
-module.exports = model('Publication', PublicationSchema)
+module.exports = model("Publicacione", PublicationSchema);
