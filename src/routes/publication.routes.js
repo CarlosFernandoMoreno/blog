@@ -5,7 +5,7 @@ const {createpublicationCTRL, getPublicationsCTRL,updatePublicationCTRL, deleteP
 // Routes   
 router.get('/', getPublicationsCTRL)
 router.post('/create',createpublicationCTRL)
-router.delete('/delete',deletePublicationCTRL)
+router.delete('/delete/:id',deletePublicationCTRL)
 router.put('/update',updatePublicationCTRL)   
 // Routes Exports
 module.exports = router;
