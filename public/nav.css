@@ -1,3 +1,25 @@
 #barraNav {
-    background-color: #7cf5bf;
+    background-color: #5aeaa6;
 }
+
+#imgLogo {
+    border-radius: 50%;
+}
+
+#botonMenu{
+    border-color: #9fffd7; /* Cambia el color del borde del botón */
+    background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo del botón */
+}
+
+
+#botonMenu:focus {
+    /* Agrega aquí los estilos que deseas aplicar cuando se selecciona */
+    /* Por ejemplo, puedes modificar el color de fondo o el tamaño */
+    box-shadow: none; /*saca el borde automatico del boton que le pone bootstrap */
+    transform: scale(1.1); /* Aumenta el tamaño del menú */
+  }
+
+
+
+
+
