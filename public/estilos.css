@@ -1,0 +1,37 @@
+
+#barraNav, #barraFooter {
+    background-color: #5aeaa6;
+}
+
+#imgLogo {
+    border-radius: 50%;
+}
+
+#botonMenu{
+    border-color: #9fffd7; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+
+#botonMenu:focus {
+    box-shadow: none; 
+    transform: scale(1.1); 
+  }
+
+
+
+@media screen and (min-width: 768px) {
+    aside{
+        position: relative;
+
+    }
+    
+    #carouselExampleCaptions {
+        position: sticky;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+}
+
+

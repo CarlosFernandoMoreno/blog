@@ -12,7 +12,7 @@
 
         <main class="mt-3 flex-wrap-reverse row">
 
-            <section class="col-md-9 col-xl-8 ">
+            <section class="col-md-9 col-xl-8 mb-5 pb-sm-2 pb-4">
                 
                 <% publicaciones.forEach((publicacion) => { %>
                     <div class="card mb-3">
@@ -31,93 +31,46 @@
                     </div>
                   <% }); %>
 
-                <div class="card mb-3" >
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="https://img.freepik.com/foto-gratis/disparo-gran-angular-solo-arbol-que-crece-cielo-nublado-puesta-sol-rodeada-cesped_181624-22807.jpg?q=10&h=200"
-                                class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mb-3" >
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="https://img.freepik.com/foto-gratis/disparo-gran-angular-solo-arbol-que-crece-cielo-nublado-puesta-sol-rodeada-cesped_181624-22807.jpg?q=10&h=200"
-                                class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </section>
 
-            <aside class="d-none d-md-block col-md-3 col-xl-4 ">
+            <aside class="col-md-3 col-xl-4">
 
-                <div class="card mb-3">
-                    <img src="https://st.depositphotos.com/1016440/2534/i/600/depositphotos_25344733-stock-photo-sunrise-at-the-beach.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-               <!-- <div class="card mb-3" >
-                    <div class="row g-0">
-                        <div class="col-xl-4">
-                            <img src="https://st.depositphotos.com/1016440/2534/i/600/depositphotos_25344733-stock-photo-sunrise-at-the-beach.jpg"
-                                class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-xl-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <div class="card mb-3" >
-                    <div class="row g-0">
-                        <div class="col-xl-4">
-                            <img src="https://st.depositphotos.com/1016440/2534/i/600/depositphotos_25344733-stock-photo-sunrise-at-the-beach.jpg"
-                                class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-xl-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+              <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" >
+                <div class="carousel-indicators">
+                  <% for (let i = 0; i < publicaciones.length; i++) { %>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" <% if (i === 0) { %>class="active" aria-current="true"<% } %> aria-label="Slide <%= i + 1 %>"></button>
+                  <% } %>
                 </div>
+                
+              
+                <div class="carousel-inner">
+                  <% publicaciones.forEach((publicacion, index) => { %>
+                    <div class="carousel-item <% if (index === 0) { %>active<% } %>" data-bs-interval="6000">
+                      <img src="<%= publicacion.imgUrl %>" class="d-block w-100" alt="...">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5><%= publicacion.titulo %></h5>
+                        <p><%= publicacion.contenido %></p>
+                      </div>
+                    </div>
+                  <% }) %>
+                </div>
+              
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              
             </aside>
 
         </main>
 
-        <footer></footer>
+        <%- include('./layout/footer.ejs'); %>
 
     </div>
     
