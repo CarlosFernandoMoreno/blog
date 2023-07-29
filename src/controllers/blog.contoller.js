@@ -1,54 +1,63 @@
-const Publication = require("../models/publication.model");
+const Publication = require('../models/publicacion.model')
 
 const getPublicationsCTRL = (req, res) => {
-  const publications = Publication.find()
+  Publication.find()
     .then((publicaciones) => {
-      res.render('index', {publicaciones:publicaciones});
-      console.log(publicaciones);
+      res.render('index', { publicaciones })
     })
     .catch((error) => {
-      console.log(error);
-    });
-};
-const createpublicationCTRL = (req, res) => {
-  const { contenido, titulo, imgUrl } = req.body;
+      res.json(error)
+    })
+}
+const createPublicationCTRL = (req, res) => {
+  const imgUrl = './images/' + req.file.filename
+  const { descripcion, titulo, contenido } = req.body
   const publication = new Publication({
     titulo,
+    descripcion,
     contenido,
-    imgUrl,
-  });
+    imgUrl
+  })
   publication
     .save()
     .then((savePublication) => {
-      console.log(savePublication);
-      res.json(savePublication).status(300);
+      res.json(savePublication).status(300)
     })
-    .catch((error) => console.log(error));
-};
+    .catch((error) => res.status(400).json('error al guardar la publicacion' + error))
+}
 const deletePublicationCTRL = (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params
   Publication.deleteOne({ _id: id })
     .then((PublicacionBorrada) => {
-      res.json(PublicacionBorrada);
-      console.log(PublicacionBorrada);
+      res.json(PublicacionBorrada)
     })
-    .catch((error) => console.log(error));
-};
+    .catch((error) => res.json(error))
+}
 const updatePublicationCTRL = (req, res) => {
-  const dataUpdate = req.body;
+  const dataUpdate = req.body
   const publication = Publication.findOne({ _id: dataUpdate.id })
     .then((publicacionActualizada) => {
-      res.json(publicacionActualizada);
-      console.log(result);
+      res.json(publicacionActualizada)
     })
-    .catch((error) => console.log(error));
-  publication.updateOne(dataUpdate.id, { dataUpdate });
-  console.log("hola");
-};
-
+    .catch((error) => console.log(error))
+  publication.updateOne(dataUpdate.id, { dataUpdate })
+  console.log('hola')
+}
+const solicitudesCTRL = (req, res) => {
+  res.render('solicitudes')
+  console.log('hola')
+}
+const getPublicacionCTRL = (req, res) => {
+  const { id } = req.params
+  Publication.findById(id).then((publicacion) => {
+    res.render('publicacion', { publicacion })
+  }).catch((error) => res.render('error404', { error }))
+}
 module.exports = {
-  createpublicationCTRL,
+  createPublicationCTRL,
   getPublicationsCTRL,
   updatePublicationCTRL,
   deletePublicationCTRL,
-};
+  solicitudesCTRL,
+  getPublicacionCTRL
+}

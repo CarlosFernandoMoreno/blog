@@ -38,19 +38,19 @@
 
           <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" >
             <div class="carousel-indicators">
-              <% for (let i = 0; i < publicidades.length; i++) { %>
+              <% for (let i = 0; i < publicaciones.length; i++) { %>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" <% if (i === 0) { %>class="active" aria-current="true"<% } %> aria-label="Slide <%= i + 1 %>"></button>
               <% } %>
             </div>
             
           
             <div class="carousel-inner">
-              <% publicidades.forEach((publicidad, index) => { %>
+              <% publicaciones.forEach((publicacion, index) => { %>
                 <div class="carousel-item <% if (index === 0) { %>active<% } %>" data-bs-interval="6000">
-                  <img src="<%= publicidad.imgUrl %>" class="d-block w-100" alt="...">
+                  <img src="<%= publicacion.imgUrl %>" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5><%= publicidad.titulo %></h5>
-                    <p><%= publicidad.contenido %></p>
+                    <h5><%= publicacion.titulo %></h5>
+                    <p><%= publicacion.contenido %></p>
                   </div>
                 </div>
               <% }) %>

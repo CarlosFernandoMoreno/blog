@@ -14,29 +14,29 @@
 
         <main>
             <div class="d-flex justify-content-center align-items-center mb-5 pb-5">
-                <form method="post" action="" class="col-12 col-sm-10 col-md-7 col-lg-5 col-xl-4 col-xxl-3 mb-4 pb-5">
+                <form method="post" action="/solicitudes" class="col-12 col-sm-10 col-md-7 col-lg-5 col-xl-4 col-xxl-3 mb-4 pb-5" enctype="multipart/form-data" >
     
                   <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" maxlength="21" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre" maxlength="21" required>
                     <div class="invalid-feedback">Por favor, ingresa un nombre válido (máximo 21 caracteres).</div>
                   </div>
     
                   <div class="mb-3">
                     <label for="titulo" class="form-label">Título</label>
-                    <input type="text" class="form-control" id="titulo" maxlength="50" required>
+                    <input type="text" class="form-control" id="titulo" maxlength="50" name="titulo" required>
                     <div class="invalid-feedback">Por favor, ingresa un título válido (máximo 50 caracteres).</div>
                   </div>
     
                   <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripción/Contenido</label>
-                    <textarea class="form-control" id="descripcion" rows="4" maxlength="500" required></textarea>
+                    <textarea class="form-control" id="descripcion" rows="4" maxlength="500" name="descripcion" required></textarea>
                     <div class="invalid-feedback">Por favor, ingresa una descripción válida (máximo 500 caracteres).</div>
                   </div>
     
                   <div class="mb-3">
                     <label for="imagen" class="form-label">Imagen</label>
-                    <input type="file" class="form-control" id="imagen" accept="image/*" required>
+                    <input type="file" class="form-control" id="imagen" accept="image/*" name="img" required>
                     <div class="invalid-feedback">Por favor, selecciona una imagen válida (máximo 2 MB).</div>
                   </div>
     
