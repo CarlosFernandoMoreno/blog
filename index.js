@@ -7,7 +7,6 @@ const cors = require('cors')
 const PORT = process.env.PORT
 const path = require('path')
 const publicationsRoutes = require('./src/routes/publication.routes.js')
-
 /* Middlewares */
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, './public')))
