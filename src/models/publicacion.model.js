@@ -20,5 +20,8 @@ const PublicationSchema = new Schema({
     required: true
   }
 },
-{ timestamps: true })
+{
+  timestamps: true,
+  versionKey: false
+})
 module.exports = model('Publicacione', PublicationSchema)
