@@ -1,7 +1,8 @@
 // Requires
 const router = require('express').Router()
-const { solicitudesCTRL, getPublicationsCTRL, updatePublicationCTRL, deletePublicationCTRL, createPublicationCTRL, getPublicacionCTRL, handleError } = require('../controllers/blog.contoller.js')
+const { solicitudesCTRL, getPublicationsCTRL, updatePublicationCTRL, deletePublicationCTRL, createPublicationCTRL, getPublicacionCTRL } = require('../controllers/blog.contoller.js')
 const { upload } = require('../middlewares/upload.middleware.js')
+const { handleError } = require('../middlewares/error.middleware.js')
 const { validadorDePublicacion } = require('../middlewares/Publicacion.middleware.js')
 // Routes
 router.get('/', getPublicationsCTRL)

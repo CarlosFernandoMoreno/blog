@@ -53,13 +53,11 @@ const getPublicacionCTRL = (req, res) => {
     res.render('publicacion', { publicacion })
   }).catch((error) => res.render('error404', { error }))
 }
-const handleError = (req, res) => { res.render('error404', { error: req.body }) }
 module.exports = {
   createPublicationCTRL,
   getPublicationsCTRL,
   updatePublicationCTRL,
   deletePublicationCTRL,
   solicitudesCTRL,
-  getPublicacionCTRL,
-  handleError
+  getPublicacionCTRL
 }
