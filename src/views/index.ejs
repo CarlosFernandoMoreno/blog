@@ -1,87 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <title>Blogcito</title>
-    
+  <title>Blogcito</title>
 
-    <%- include('./layout/head.ejs'); %>
+
+  <%- include('./layout/head.ejs'); %>
 </head>
+
 <body>
-    <div class="container-fluid">
-            <%- include('./layout/nav.ejs'); %>
+  <div class="container-fluid">
+    <%- include('./layout/nav.ejs'); %>
 
-        <main class="mt-3 flex-wrap-reverse row">
+      <main class="mt-3 flex-wrap-reverse row">
 
-          <section class="col-md-9 col-xl-8 mb-5 pb-sm-2 pb-4">
-                
-            <% publicaciones.forEach((publicacion) => { %>
-                <div class="card mb-3">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="<%= publicacion.imgUrl %>" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title"><%= publicacion.titulo %></h5>
-                        <p class="card-text"><%= publicacion.contenido %></p>
-                        <p class="card-text"><small class="text-body-secondary"><%= publicacion.createdAt %></small></p>
-                      </div>
+        <section class="col-md-9 col-xl-8 mb-5 pb-sm-2 pb-4">
+
+          <% publicaciones.sort((a, b)=> new Date(b.createdAt) - new Date(a.createdAt)); %>
+            <% publicaciones.forEach((publicacion)=> { %>
+              <div class="card mb-3 cardAltura">
+                <div class="row g-0">
+                  <div class="col-md-4 divImagenes">
+                    <img src="<%= publicacion.imgUrl %>" class="rounded-start"
+                      alt="<%= publicacion.titulo %>">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <%= publicacion.titulo %>
+                      </h5>
+                      <p class="card-text">
+                        <%= publicacion.contenido %>
+                      </p>
+                      <p class="card-text"><small class="text-body-secondary">
+                          <%= publicacion.createdAt %>
+                        </small></p>
                     </div>
                   </div>
                 </div>
+              </div>
               <% }); %>
 
-            
+
+
         </section>
 
         <aside class="col-md-3 col-xl-4">
 
-          <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" >
+          <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <% for (let i = 0; i < publicaciones.length; i++) { %>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" <% if (i === 0) { %>class="active" aria-current="true"<% } %> aria-label="Slide <%= i + 1 %>"></button>
-              <% } %>
+              <% for (let i=0; i < publicaciones.length; i++) { %>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" <% if
+                  (i===0) { %>class="active" aria-current="true"<% } %> aria-label="Slide <%= i + 1 %>"></button>
+                <% } %>
             </div>
-            
-          
+
+
             <div class="carousel-inner">
-              <% publicaciones.forEach((publicacion, index) => { %>
+              <% publicaciones.forEach((publicacion, index)=> { %>
                 <div class="carousel-item <% if (index === 0) { %>active<% } %>" data-bs-interval="6000">
                   <img src="<%= publicacion.imgUrl %>" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5><%= publicacion.titulo %></h5>
-                    <p><%= publicacion.contenido %></p>
+                    <h5>
+                      <%= publicacion.titulo %>
+                    </h5>
+                    <p>
+                      <%= publicacion.contenido %>
+                    </p>
                   </div>
                 </div>
-              <% }) %>
+                <% }) %>
             </div>
-          
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-          
+
         </aside>
-          
-          
 
-        </main>
 
-        <%- include('./layout/footer.ejs'); %>
 
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
+      </main>
 
- 
+      <%- include('./layout/footer.ejs'); %>
 
-   
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+
+
+
 </body>
+
 </html>
