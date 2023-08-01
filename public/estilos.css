@@ -52,6 +52,15 @@
     color: white;
   }
 
+.divImagenes{
+  height: 25vh;
+  overflow: hidden;
+}
+
+.cardAltura img{
+  max-width: 100%;
+  min-height: 100%;  
+}
 
 /* estilos responsive   */
 @media screen and (min-width: 768px) {
