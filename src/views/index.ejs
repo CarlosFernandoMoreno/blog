@@ -26,15 +26,26 @@
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">
-                        <%= publicacion.titulo %>
-                      </h5>
-                      <p class="card-text">
-                        <%= publicacion.contenido %>
-                      </p>
-                      <p class="card-text"><small class="text-body-secondary">
-                          <%= publicacion.createdAt %>
-                        </small></p>
+                      <div class="position-absolute top-0 end-0 m-2">
+                        <form action="/ruta-del-backend/aprobar" method="POST">
+                          <input type="hidden" name="publicacionId" value="<%= publicacion.id %>">
+                          <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                        </form>
+                      </div>
+                      
+                      <div>
+                        <h5 class="card-title">
+                          <%= publicacion.titulo %>
+                        </h5>
+                        <p class="card-text">
+                          <%= publicacion.contenido %>
+                        </p>
+                        <p class="card-text"><small class="text-body-secondary">
+                            <%= publicacion.createdAt %>
+                          </small></p>   
+                      </div>
+                        
+
                     </div>
                   </div>
                 </div>
