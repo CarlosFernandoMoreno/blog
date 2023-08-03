@@ -24,7 +24,6 @@
 }
 
 .form-control {
-
   border-color: #14d575;
   color: #000000;
 }
@@ -65,12 +64,3 @@
   object-fit: cover;
 }
 
-/* estilos responsive   */
-@media screen and (min-width: 768px) {
-  
-  #carouselExampleCaptions {
-    position: sticky;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
