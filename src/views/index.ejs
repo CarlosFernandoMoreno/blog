@@ -4,7 +4,6 @@
 <head>
   <title>Blogcito</title>
 
-
   <%- include('./layout/head.ejs'); %>
 </head>
 
@@ -21,8 +20,7 @@
               <div class="card mb-3 cardAltura">
                 <div class="row g-0">
                   <div class="col-md-4 divImagenes">
-                    <img src="<%= publicacion.imgUrl %>" class="rounded-start"
-                      alt="<%= publicacion.titulo %>">
+                    <img src="<%= publicacion.imgUrl %>" class="rounded-start" alt="<%= publicacion.titulo %>">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -38,9 +36,9 @@
                         </p>
                         <p class="card-text"><small class="text-body-secondary">
                             <%= publicacion.createdAt %>
-                          </small></p>   
+                          </small></p>
                       </div>
-                        
+
 
                     </div>
                   </div>
@@ -54,7 +52,8 @@
 
         <aside class="col-md-3 col-xl-4 ">
 
-          <div id="carouselExampleCaptions" class="carousel slide carousel-fade mb-3 configCarrusel" data-bs-ride="carousel">
+          <div id="carouselExampleCaptions" class="carousel slide carousel-fade mb-3 configCarrusel"
+            data-bs-ride="carousel">
             <div class="carousel-indicators">
               <% for (let i=0; i < publicaciones.length; i++) { %>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" <% if
