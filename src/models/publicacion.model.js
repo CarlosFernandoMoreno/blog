@@ -18,6 +18,11 @@ const PublicationSchema = new Schema({
   descripcion: {
     type: String,
     required: true
+  },
+  aside: {
+    type: Boolean,
+    default: false,
+    required: false
   }
 },
 {
