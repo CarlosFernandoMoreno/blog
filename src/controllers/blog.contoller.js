@@ -20,28 +20,25 @@ const createPublicationCTRL = (req, res) => {
   })
   publication
     .save()
-    .then((savePublication) => {
-      res.json(savePublication).status(300)
+    .then(() => {
+      res.redirect('/solicitudes')
     })
     .catch((error) => res.status(400).json('error al guardar la publicacion' + error))
 }
 const deletePublicationCTRL = (req, res) => {
   const { id } = req.params
   Publication.deleteOne({ _id: id })
-    .then((PublicacionBorrada) => {
-      res.json(PublicacionBorrada)
+    .then(() => {
+      res.redirect('/')
     })
-    .catch((error) => res.json(error))
+    .catch((error) => res.render('error404', { error }))
 }
 const updatePublicationCTRL = (req, res) => {
   const dataUpdate = req.body
-  const publication = Publication.findOne({ _id: dataUpdate.id })
-    .then((publicacionActualizada) => {
-      res.json(publicacionActualizada)
-    })
-    .catch((error) => console.log(error))
-  publication.updateOne(dataUpdate.id, { dataUpdate })
-  console.log('hola')
+  Publication.updateOne({ _id: dataUpdate.id }, { dataUpdate })
+    .then((publicacion) => {
+      res.redirect(`/${publicacion.id}`)
+    }).catch((error) => res.render('error404', { error }))
 }
 const solicitudesCTRL = (req, res) => {
   res.render('solicitudes')

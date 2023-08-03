@@ -22,5 +22,5 @@ const validadorDePublicacion = [
     .not()
     .isEmpty()
     .withMessage('El contenido es requerido'),
-  (req, res, next) => { console.log('entra aca'); validateResult(req, res, next) }]
+  (req, res, next) => { validateResult(req, res, next) }]
 module.exports = { validadorDePublicacion }
