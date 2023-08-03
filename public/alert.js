@@ -1,7 +1,14 @@
 import Swal from 'sweetalert2';
 
-const btnSolicitudes = document.getElementById("btnSolicitudes");
+const formSolicitudes = document.getElementById("formSolicitudes");
 
-btnSolicitudes.addEventListener('click', () => {
-    alert('Hola mundo')
+formSolicitudes.addEventListener('submit', () => {
+    if(formSolicitudes.checkValidity()){
+        Swal.fire({
+            icon: 'success',
+            title: 'La publicacion fue recibida con exito',
+            showConfirmButton: false,
+            timer: 2500
+          })
+    }
 })
