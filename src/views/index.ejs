@@ -52,9 +52,9 @@
 
         </section>
 
-        <aside class="col-md-3 col-xl-4">
+        <aside class="col-md-3 col-xl-4 ">
 
-          <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div id="carouselExampleCaptions" class="carousel slide carousel-fade mb-3 configCarrusel" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <% for (let i=0; i < publicaciones.length; i++) { %>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" <% if
@@ -65,8 +65,8 @@
 
             <div class="carousel-inner">
               <% publicaciones.forEach((publicacion, index)=> { %>
-                <div class="carousel-item <% if (index === 0) { %>active<% } %>" data-bs-interval="6000">
-                  <img src="<%= publicacion.imgUrl %>" class="d-block w-100" alt="...">
+                <div class="imgCarrusel carousel-item <% if (index === 0) { %>active<% } %>" data-bs-interval="6000">
+                  <img src="<%= publicacion.imgUrl %>" class="d-block " alt="...">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>
                       <%= publicacion.titulo %>
