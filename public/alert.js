@@ -1,14 +1,28 @@
-import Swal from 'sweetalert2';
-
 const formSolicitudes = document.getElementById("formSolicitudes");
 
-formSolicitudes.addEventListener('submit', () => {
+formSolicitudes.addEventListener('submit', (event) => {
+    event.preventDefault();
     if(formSolicitudes.checkValidity()){
         Swal.fire({
-            icon: 'success',
-            title: 'La publicacion fue recibida con exito',
-            showConfirmButton: false,
-            timer: 2500
+            title: 'Deses enviar esta publicacion?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Enviar',
+            denyButtonText: `No enviar`,
+            cancelButtonText: 'Cancelar',
+          }).then((result) => {
+            
+            if (result.isConfirmed) {
+              Swal.fire('Enviado!', '', 'success')
+              setTimeout(function() {
+                event.target.submit();
+            }, 2500);
+            } else if (result.isDenied) {
+              Swal.fire('La publicacion no fue enviada', '', 'info');
+            } else {
+                formSolicitudes.reset()
+            }
           })
+
     }
 })
