@@ -50,6 +50,10 @@
   color: white;
 }
 
+#divMostrarTodo{
+  display: none;
+}
+
 .divImagenes {
   height: 25vh;
 }
