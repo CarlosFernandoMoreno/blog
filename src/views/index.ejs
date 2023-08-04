@@ -15,6 +15,10 @@
 
         <section class="col-md-9 col-xl-8 mb-5 pb-sm-2 pb-4">
 
+            <div class="text-center pb-3" id="divMostrarTodo">
+              <button class="btn btn-outline-secondary" onclick="mostrarTodo()">Mostrar todas las publicaciones</button>
+            </div> 
+
           <% publicaciones.sort((a, b)=> new Date(b.createdAt) - new Date(a.createdAt)); %>
             <% publicaciones.forEach((publicacion)=> { %>
               <div class="card mb-3 cardAltura">
@@ -105,7 +109,7 @@
     crossorigin="anonymous"></script>
 
 
-
+    <script src="filtroBusqueda.js"></script>
 
 </body>
 
