@@ -15,9 +15,9 @@
 
         <section class="col-md-9 col-xl-8 mb-5 pb-sm-2 pb-4">
 
-            <div class="text-center pb-3" id="divMostrarTodo">
-              <button class="btn btn-outline-secondary" onclick="mostrarTodo()">Mostrar todas las publicaciones</button>
-            </div> 
+          <div class="text-center pb-3" id="divMostrarTodo">
+            <button class="btn btn-outline-secondary" onclick="mostrarTodo()">Mostrar todas las publicaciones</button>
+          </div>
 
           <% publicaciones.sort((a, b)=> new Date(b.createdAt) - new Date(a.createdAt)); %>
             <% publicaciones.forEach((publicacion)=> { %>
@@ -28,30 +28,73 @@
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
+
                       <div class="position-absolute top-0 end-0 m-2">
                         <a href="/delete/<%= publicacion.id %>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%= publicacion.id %>"><i
+                            class="bi bi-pencil-square"></i></button>
                       </div>
+                      <div class="modal fade" id="<%= publicacion.id %>" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="ModalLabel">
+                                <%= publicacion.titulo %>
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form action="/actualizar/<%= publicacion.id %>" method="POST">
+                                <div class="mb-3">
+                                  <label for="titulo" class="form-label">Título</label>
+                                  <input type="text" class="form-control" id="titulo" name="titulo" value="<%= publicacion.titulo %>">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="contenido" class="form-label">Contenido</label>
+                                  <textarea class="form-control" id="contenido" name="contenido" rows="4"><%= publicacion.contenido %></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                                            
+
                       <div>
                         <h5 class="card-title">
                           <%= publicacion.titulo %>
                         </h5>
-                        <p class="card-text">
-                          <%= publicacion.contenido %>
+                        <div class="collapse" id="<%= publicacion.id %>">
+                          <p class="card-text">
+                            <%= publicacion.contenido %>
+                          </p>
+                        </div>
+                        <p class="d-inline-flex gap-1">
+                          <a class="btn btnColor btn-outline-success " data-bs-toggle="collapse"
+                            href="#<%= publicacion.id %>" role="button" aria-expanded="false"
+                            aria-controls="<%= publicacion.id %>" onclick="btnMostrarMas(event)">
+                            Mostrar Mas
+                          </a>
                         </p>
-                        <p class="card-text"><small class="text-body-secondary">
-                            <%= publicacion.createdAt %>
-                          </small></p>
+
+                        <% const fechaPublicacion=new Date(publicacion.createdAt); %>
+                          <p class="card-text">
+                            <small class="text-body-secondary">
+                              <%= `${fechaPublicacion.toLocaleDateString('es-AR', { day: '2-digit' , month: '2-digit' ,
+                                year: '2-digit' })} ${fechaPublicacion.toLocaleTimeString('es-AR', { hour: '2-digit' ,
+                                minute: '2-digit' })}` %>
+                            </small>
+                          </p>
                       </div>
-
-
                     </div>
                   </div>
                 </div>
               </div>
               <% }); %>
-
-
-
         </section>
 
         <aside class="col-md-3 col-xl-4 ">
@@ -97,7 +140,6 @@
         </aside>
 
 
-
       </main>
 
       <%- include('./layout/footer.ejs'); %>
@@ -109,7 +151,7 @@
     crossorigin="anonymous"></script>
 
 
-    <script src="filtroBusqueda.js"></script>
+  <script src="filtroBusqueda.js"></script>
 
 </body>
 
