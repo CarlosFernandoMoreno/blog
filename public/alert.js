@@ -16,7 +16,7 @@ formSolicitudes.addEventListener('submit', (event) => {
         Swal.fire('Enviado!', '', 'success')
         setTimeout(function () {
           event.target.submit();
-        }, 2500);
+        }, 2000);
       } else if (result.isDenied) {
         Swal.fire('La publicacion no fue enviada', '', 'info');
       } else {

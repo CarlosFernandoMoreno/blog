@@ -25,3 +25,10 @@ function mostrarTodo() {
       divMostrarTodo.style.display = 'none';
     }
   }
+
+  function btnMostrarMas(event){
+    const btnMostrar = event.target;
+    const btnExpandido = btnMostrar.getAttribute('aria-expanded');
+    btnMostrar.textContent = btnExpandido === 'true' ?  'Mostrar Menos' : 'Mostrar Mas';
+  }
+
