@@ -1,72 +1,70 @@
-
 /* Navbar estilos */
-#barraNav, #barraFooter {
-    background-color: #5aeaa6;
+#barraNav,
+#barraFooter {
+  background-color: #5aeaa6;
 }
 
 #imgLogo {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
-#botonMenu{
-    border-color: #9fffd7; 
-    background-color: rgba(0, 0, 0, 0.5); 
+#botonMenu {
+  border-color: #9fffd7;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-
 
 #botonMenu:focus {
-    box-shadow: none; 
-    transform: scale(1.1); 
-  }
+  box-shadow: none;
+  transform: scale(1.1);
+}
 
 /*estilos formularios */
 .form-label {
-    color: #000000;
-  }
+  color: #000000;
+}
 
-  .form-control {
-   
-    border-color: #14d575;
-    color: #000000;
-  }
+.form-control {
+  border-color: #14d575;
+  color: #000000;
+}
 
-  .form-control:focus {
-    background-color: #FFFFFF;
-    border-color: #37e08e;
-    color: #000000;
-  }
+.form-control:focus {
+  background-color: #FFFFFF;
+  border-color: #37e08e;
+  color: #000000;
+}
 
-  .invalid-feedback {
-    color: #e84c3d;
-  }
+.invalid-feedback {
+  color: #e84c3d;
+}
 
-  .btnColor {
-    background-color: #14d575;
-    border-color: #14d575;
-    color: white;
-  }
+.btnColor {
+  background-color: #14d575;
+  border-color: #14d575;
+  color: white;
+}
 
-  .btnColor:hover {
-    background-color: #37e08e;
-    border-color: #37e08e;
-    color: white;
-  }
+.btnColor:hover {
+  background-color: #37e08e;
+  border-color: #37e08e;
+  color: white;
+}
 
+#divMostrarTodo{
+  display: none;
+}
 
-/* estilos responsive   */
-@media screen and (min-width: 768px) {
+.divImagenes {
+  height: 25vh;
+}
 
+.imgCarrusel{
+  height: 65vh;
+}
 
-    aside{
-        position: relative;
-
-    }
-    
-    #carouselExampleCaptions {
-        position: sticky;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    
+.imgCarrusel img, .cardAltura img  {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 

@@ -1,12 +1,10 @@
 <header class="row sticky-top">
     <nav class="navbar navbar-expand-lg" id="barraNav">
         <div class="container-fluid">
-
             <a class="navbar-brand" href="/">
                 <img src="https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg"
                     alt="LogoBlog" width="30" height="30" id="imgLogo">
             </a>
-
             <button class="navbar-toggler d-lg-none d-flex justify-content-center align-items-center pt-2"
                 id="botonMenu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +17,6 @@
                         stroke-width="2" d="M1 12.5h14" />
                 </svg>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -29,32 +26,12 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="/solicitudes">Solicitudes</a>
-                    </li>
-
-                    <li class="nav-item dropdown dropdown-hover">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Buscar por fecha
-                        </a>
-                        <ul class="dropdown-menu">
-
-                            <li><a class="dropdown-item disabled" href="#">2000</a></li>
-                            
-                            <li><a class="dropdown-item disabled" href="#">2001</a></li>
-                            
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            
-                            <li><a class="dropdown-item disabled" href="#">Ir a lo mas antiguo</a></li>
-                        </ul>
-                    </li>
-                    
+                    </li>               
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+                <form class="d-flex" role="search" onsubmit="return false;" id="formBusqueda">
+                    <input class="form-control me-2" type="search" id="btnBusqueda" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" onclick="filtrarPublicaciones()">Buscar</button>
+                  </form>
             </div>
         </div>
     </nav>

@@ -1,4 +1,6 @@
 const Publication = require('../models/publicacion.model')
+const { borrarImagen } = require('../helpers/eliminar-imagen.helper.js')
+const path = require('path')
 
 const getPublicationsCTRL = (req, res) => {
   Publication.find()
@@ -20,28 +22,32 @@ const createPublicationCTRL = (req, res) => {
   })
   publication
     .save()
-    .then((savePublication) => {
-      res.json(savePublication).status(300)
+    .then(() => {
+      res.redirect('/solicitudes')
     })
     .catch((error) => res.status(400).json('error al guardar la publicacion' + error))
 }
 const deletePublicationCTRL = (req, res) => {
   const { id } = req.params
+  Publication.findById({ _id: id }).then((publicacion) => {
+    const imgUrl = path.join(__dirname, '../../public', publicacion.imgUrl)
+    borrarImagen(imgUrl)
+  }).catch((error) => res.render('error404', { error }))
   Publication.deleteOne({ _id: id })
-    .then((PublicacionBorrada) => {
-      res.json(PublicacionBorrada)
+    .then(() => {
+      res.redirect('/')
     })
-    .catch((error) => res.json(error))
+    .catch((error) => res.render('error404', { error }))
 }
 const updatePublicationCTRL = (req, res) => {
+  const id = req.params.id
+  const publicacion = Publication.findById(id)
+  if (!publicacion) res.status(404).json('publicacion no encontrada')
   const dataUpdate = req.body
-  const publication = Publication.findOne({ _id: dataUpdate.id })
-    .then((publicacionActualizada) => {
-      res.json(publicacionActualizada)
-    })
-    .catch((error) => console.log(error))
-  publication.updateOne(dataUpdate.id, { dataUpdate })
-  console.log('hola')
+  Publication.updateOne({ _id: id }, dataUpdate)
+    .then(() => {
+      res.redirect('/')
+    }).catch((error) => res.render('error404', { error }))
 }
 const solicitudesCTRL = (req, res) => {
   res.render('solicitudes')
