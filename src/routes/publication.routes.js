@@ -11,7 +11,7 @@ router.get('/solicitudes', solicitudesCTRL)
 router.post('/solicitudes', upload, validadorDePublicacion, createPublicationCTRL)
 router.get('/:id', getPublicacionCTRL)
 router.get('/delete/:id', validadorDeId, deletePublicationCTRL)
-router.put('/actualizar/:id', updatePublicationCTRL)
+router.post('/actualizar/:id', updatePublicationCTRL)
 router.use(handleError)
 // Routes Exports
 module.exports = router
