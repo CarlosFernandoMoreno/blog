@@ -3,7 +3,7 @@ const router = require('express').Router()
 const { solicitudesCTRL, getPublicationsCTRL, updatePublicationCTRL, deletePublicationCTRL, createPublicationCTRL, getPublicacionCTRL } = require('../controllers/blog.contoller.js')
 const { upload } = require('../middlewares/upload.middleware.js')
 const { handleError } = require('../middlewares/error.middleware.js')
-const { validadorDePublicacion } = require('../validators/Publicacion.validator.js')
+const { validadorDePublicacion } = require('../validators/publicacion.validator.js')
 const { validadorDeId } = require('../validators/id.validator.js')
 // Routes
 router.get('/', getPublicationsCTRL)
