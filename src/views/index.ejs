@@ -68,15 +68,16 @@
                         <h5 class="card-title">
                           <%= publicacion.titulo %>
                         </h5>
-                        <div class="collapse" id="<%= publicacion.id %>">
+                        
+                        <div class="collapse" id="<%= publicacion.id + 1; %>">
                           <p class="card-text">
                             <%= publicacion.contenido %>
                           </p>
                         </div>
                         <p class="d-inline-flex gap-1">
                           <a class="btn btnColor btn-outline-success " data-bs-toggle="collapse"
-                            href="#<%= publicacion.id %>" role="button" aria-expanded="false"
-                            aria-controls="<%= publicacion.id %>" onclick="btnMostrarMas(event)">
+                            href="#<%= publicacion.id + 1; %>" role="button" aria-expanded="false"
+                            aria-controls="<%= publicacion.id + 1; %>" onclick="btnMostrarMas(event)">
                             Mostrar Mas
                           </a>
                         </p>
