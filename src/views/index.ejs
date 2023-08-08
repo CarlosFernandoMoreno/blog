@@ -86,11 +86,11 @@
                         <% const fechaPublicacion=new Date(publicacion.createdAt); %>
                           <p class="card-text">
                             <small class="text-body-secondary">
-                              <%= `${fechaPublicacion.toLocaleDateString('es-AR', { day: '2-digit' , month: '2-digit' ,
-                                year: '2-digit' })} ${fechaPublicacion.toLocaleTimeString('es-AR', { hour: '2-digit' ,
-                                minute: '2-digit' })}` %>
+                              <%=
+                                `${fechaPublicacion.toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit', year: '2-digit' })}
+                                ${fechaPublicacion.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}`
+                              %>
                             </small>
-                          </p>
                       </div>
                     </div>
                   </div>
